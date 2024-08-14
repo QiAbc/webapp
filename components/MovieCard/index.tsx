@@ -1,6 +1,7 @@
 import React from "react";
-import { Card, CardBody, CardFooter, Image, Skeleton } from "@nextui-org/react";
-import StarRating from '../StarRating';
+import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+
+import StarRating from "../StarRating";
 
 export type Movie = {
   id: number;
@@ -13,20 +14,21 @@ export type Movie = {
 };
 
 export default function MovieCard(prop: any) {
-  const data: Movie = prop.data
+  const data: Movie = prop.data;
   const onPress = (id: number) => {
-    location.href = `/detail/${id}`
-  }
+    location.href = `/detail/${id}`;
+  };
+
   return (
-    <Card shadow="sm" isPressable onPress={() => onPress(data.id)}>
+    <Card isPressable shadow="sm" onPress={() => onPress(data.id)}>
       <CardBody className="overflow-visible p-0">
         <Image
-          shadow="sm"
-          radius="lg"
-          width="100%"
           alt={data.title}
           className="w-full object-cover h-[140px]"
+          radius="lg"
+          shadow="sm"
           src={data.poster_url}
+          width="100%"
         />
       </CardBody>
       <div className="text-center w-full pt-3">{data.title}</div>

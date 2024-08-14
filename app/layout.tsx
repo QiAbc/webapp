@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { Metadata, Viewport } from "next";
+import { Viewport } from "next";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
@@ -22,8 +22,8 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <meta name="referrer" content="no-referrer" />
-      <head></head>
+      <meta content="no-referrer" name="referrer" />
+      <head />
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",

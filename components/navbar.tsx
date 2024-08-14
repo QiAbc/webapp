@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -6,52 +6,40 @@ import {
   NavbarMenuToggle,
   NavbarBrand,
   NavbarItem,
-  NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
-import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
-import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
-import clsx from "clsx";
-
-import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-  Logo,
-} from "@/components/icons";
 import { useState } from "react";
 
+import { ThemeSwitch } from "@/components/theme-switch";
+import { SearchIcon, Logo } from "@/components/icons";
+
 export const Navbar = () => {
-  const [searchVal, setSearchVal] = useState<string>('');
+  const [searchVal, setSearchVal] = useState<string>("");
   const goSearch = () => {
     if (searchVal.trim()) {
-       location.href = `/search/${searchVal}`
+      location.href = `/search/${searchVal}`;
     }
-  }
-  const handleKeyDown = (event: { key: string; }) => {
-    if (event.key === 'Enter') {
+  };
+  const handleKeyDown = (event: { key: string }) => {
+    if (event.key === "Enter") {
       if (searchVal.trim()) {
-        location.href = `/search/${searchVal}`
-     }
+        location.href = `/search/${searchVal}`;
+      }
     }
   };
   const searchInput = (
     <Input
-      onKeyDown={handleKeyDown}
-      onChange={e => setSearchVal(e.target.value)}
       aria-label="Search"
       classNames={{
         inputWrapper: "bg-default-100",
         input: "text-sm",
       }}
       endContent={
-        <Button onClick={() => goSearch()} variant='light'>OK</Button>
+        <Button variant="light" onClick={() => goSearch()}>
+          OK
+        </Button>
       }
       labelPlacement="outside"
       placeholder="Search..."
@@ -59,6 +47,8 @@ export const Navbar = () => {
         <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
       }
       type="search"
+      onChange={(e) => setSearchVal(e.target.value)}
+      onKeyDown={handleKeyDown}
     />
   );
 
@@ -86,9 +76,7 @@ export const Navbar = () => {
         <NavbarMenuToggle />
       </NavbarContent>
 
-      <NavbarMenu>
-        {searchInput}
-      </NavbarMenu>
+      <NavbarMenu>{searchInput}</NavbarMenu>
     </NextUINavbar>
   );
 };

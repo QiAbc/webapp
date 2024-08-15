@@ -36,6 +36,7 @@ npm run dev
 
 ### Main directory
 
+```
 webapp/
 │
 ├── app/             # Web page
@@ -45,7 +46,7 @@ webapp/
 ├── lib/             # Connect mysql
 │
 └── pages/           # Api
-
+```
 
 ## License
 

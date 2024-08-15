@@ -1,5 +1,7 @@
 # Quick Test
-[DEMO](https://webapp-pbd28bcvz-qiabcs-projects.vercel.app/)
+
+The project is deployed on Vercel and can be viewed directly.
+[DEMO](https://webapp-silk.vercel.app/)
 
 
 
